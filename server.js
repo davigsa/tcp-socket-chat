@@ -5,7 +5,7 @@ const colors = require('colors')
 const { PORT } = require('./config')
 const { extractFromArgs, extractFromData } = require('./utils/extractFrom')
 const { decodingString } = require('./utils/decodingString')
-const MessageController = require('./controller/message')
+const MessageController = require('./controllers/messageController')
 
 const messageApi = new MessageController()
 
@@ -52,14 +52,14 @@ server.on('connection', socket => {
       }
 
     } else {
-      newConnection = false
       if (!messageApi.alreadyLoggedIn(socket) && !messageApi.hasHandleBeenUsed(decodingString(data), socket)) {
+        newConnection = false
         socket.name = decodingString(data)
         messageApi.addClient(socket)
         messageApi.broadcastMessage(`${colors.rainbow(socket.name)} joined the chat \n`, socket)
         socket.write(`Welcome ${colors.rainbow(socket.name)}, you can start chatting now`)
         return
-      } else if (messageApi.hasHandleBeenUsed(data)) {
+      } else if (messageApi.hasHandleBeenUsed(decodingString(data), socket)) {
         socket.write('Username already taken, please choose another one.')
       } else {
         socket.write('You`re already logged in.')

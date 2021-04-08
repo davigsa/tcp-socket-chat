@@ -1,7 +1,5 @@
 const colors = require('colors')
 
-const { decodingString } = require('../utils/decodingString')
-
 class MessageController {
 	constructor() {
 		this.clients = []
@@ -23,12 +21,7 @@ class MessageController {
 			if (client.name === receiver) client.write(`${colors.magenta(colors.italic('(whisper) ') + colors.bold(sender.name) + ': ' + msg)}`)
 		})
 	}
-  hasHandleBeenUsed = (data, client) => {
-		this.clients.find(value => {
-			if (value.name === data && value.id !== client.id) true 
-			else false
-		})
-	}
+  hasHandleBeenUsed = (data, client) => !!this.clients.find(value =>  value.name === data && value.id !== client.id)
 	updateHandle = (data, client) => {
 		this.clients.find(value => {
 			if (value.id === client.id) {
