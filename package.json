@@ -1,6 +1,10 @@
 {
-  "name": "websocket_udp",
+  "name": "socket_tcp_chat",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "shortid": "^2.2.16"
+  }
 }

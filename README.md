@@ -4,7 +4,7 @@ O trabalho prático consiste em uma aplicação de rede. A ideia principal da ap
 
 ## Os requisitos do trabalho são os seguintes:
 
--[] A aplicação deve ser toda desenvolvida pelo estudante. Não pode ser usado qualquer software para agir como cliente ou servidor (ou nó peer-to-peer).
+-[x] A aplicação deve ser toda desenvolvida pelo estudante. Não pode ser usado qualquer software para agir como cliente ou servidor (ou nó peer-to-peer).
 -[] Ao se conectar, o usuário deve ser capaz de escolher o endereço do servidor, a porta do serviço e um nome de usuário que não esteja em uso.
 
 - Deve ser apresentado um esquema do protocolo a ser implementado pela aplicação:
@@ -12,7 +12,7 @@ O trabalho prático consiste em uma aplicação de rede. A ideia principal da ap
 2. Qual é o formato das mensagens?
 3. Qual é o diagrama de sequência das mensagens?
 
--[] Os usuários devem ser capazes de mandar mensagens para todos ao mesmo tempo (broadcast) ou mensagens privadas para outro usuário.
+-[x] Os usuários devem ser capazes de mandar mensagens para todos ao mesmo tempo (broadcast) ou mensagens privadas para outro usuário.
 -[] Ao mandar mensagens privadas, o usuário deve ser capaz de mandar arquivos (fotos, zip, exe  ou qualquer outro tipo de arquivo).
 Limite do tamanho do arquivo --> 20MB.
 
