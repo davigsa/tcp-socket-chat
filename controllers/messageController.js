@@ -1,4 +1,7 @@
 const colors = require('colors')
+const { readFile } = require('fs')
+
+const { ENCODEING } = require('../config')
 
 class MessageController {
 	constructor() {
@@ -20,6 +23,19 @@ class MessageController {
 		this.clients.find(client => {
 			if (client.name === receiver) client.write(`${colors.magenta(colors.italic('(whisper) ') + colors.bold(sender.name) + ': ' + msg)}`)
 		})
+	}
+	sendImage = (img, receiver, sender) => {
+		readFile(img, { encoding: ENCODEING }, (err, data) => {
+			if(!err){
+				console.log(data.length);
+				const fullMsg = `(${img}) ${data}`
+				this.whisperMessage(fullMsg, receiver, sender)
+			}
+			else {
+				console.log('readfile err');
+				sender.write('Your document doesnt exists')
+			}
+		});
 	}
   hasHandleBeenUsed = (data, client) => !!this.clients.find(value =>  value.name === data && value.id !== client.id)
 	updateHandle = (data, client) => {

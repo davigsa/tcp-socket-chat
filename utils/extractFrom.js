@@ -11,7 +11,7 @@ const extractFromData = (data) => {
 	const threatedData = data.toString(ENCODEING)
 	const spltMsg = threatedData.split(' ')
 
-	if (spltMsg[0].includes('/w')) {
+	if (spltMsg[0].includes('/w') || spltMsg[0].includes('/doc')) {
 		act = spltMsg[0].substring(1)
 		cleanMsg = spltMsg.splice(2, spltMsg.length - 1).join(' ')
 

@@ -21,9 +21,10 @@ server.on('connection', socket => {
   let newConnection = true
 	socket.id = id
   socket.write('Please Enter an username:')
+  socket.bytesWritten = 20971520 //20MB
+  socket.writableLength = 20971520 //20MB
 
 	socket.on('data', data => {
-
     if(!newConnection) {
       const { act, spltMsg, cleanMsg } = extractFromData(data)
 
@@ -45,6 +46,9 @@ server.on('connection', socket => {
           break
         case 'whoami':
           socket.write(colors.red(socket.name))
+          break
+        case 'doc':
+          messageApi.sendImage(cleanMsg, spltMsg[1], socket)
           break
         default:
           socket.write('heyyy, you need to choose an action! \n action list:\n /n change nick \n /w [nick] whisper to someone \n /a talk with everyone')
@@ -68,7 +72,7 @@ server.on('connection', socket => {
 
   })
   
-	socket.on('end', () => process.send(new Error(`${socket.name || socket.id} disconnected`)))
+	socket.on('end', () => messageApi.broadcastMessage(`has left the chat :( \n`, socket))
 	socket.on('error', () =>
 		process.emitWarning(new Error(`${socket.name || socket.id} disconnected`)))
 })

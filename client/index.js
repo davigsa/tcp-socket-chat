@@ -24,7 +24,9 @@ rl.addCommands({
 })
 
 client.setEncoding(ENCODEING)
-client.on('data', data => console.log(data))
+client.on('data', data => {
+	console.log(data)
+})
 client.on('error', () => {
 	console.log('Oops! Something unexpected happend')
 	process.exit(0)
