@@ -21,8 +21,8 @@ server.on('connection', socket => {
   let newConnection = true
 	socket.id = id
   socket.write('Please Enter an username:')
-  socket.bytesWritten = 20971520 //20MB
-  socket.writableLength = 20971520 //20MB
+  socket.bytesWritten = 6// 20971520 //20MB
+  socket.bytesRead = 6
 
 	socket.on('data', data => {
     if(!newConnection) {

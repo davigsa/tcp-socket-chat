@@ -40,17 +40,16 @@ class MessageController {
   hasHandleBeenUsed = (data, client) => !!this.clients.find(value =>  value.name === data && value.id !== client.id)
 	updateHandle = (data, client) => {
 		this.clients.find(value => {
-			if (value.id === client.id) {
+			if (value.id === client.id && !this.hasHandleBeenUsed(data, client)) {
 				value.name = data
 				client.write('Your username has been changed successfully :)')
 
-			} else {
-				client.write('Oh, no! We dont know you yet..')
+			} else if (this.hasHandleBeenUsed(data, client)) {
+				client.write('Username already taken, please choose another one.')
 
 			}
 		})
 	}
-
 }
 
 module.exports = MessageController
