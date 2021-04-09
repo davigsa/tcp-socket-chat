@@ -28,7 +28,7 @@ class MessageController {
 		readFile(img, { encoding: ENCODEING }, (err, data) => {
 			if(!err){
 				console.log(data.length);
-				const fullMsg = `(${img}) ${data}`
+				const fullMsg = `send an archive ${colors.bold(img)} with ${data.length} bytes`
 				this.whisperMessage(fullMsg, receiver, sender)
 			}
 			else {
