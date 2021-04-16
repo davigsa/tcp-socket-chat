@@ -1,4 +1,4 @@
-# Trabalho Interconexão de Redes I - Aplicação com websocket
+# Trabalho Interconexão de Redes I - Aplicação com socket
 
 O trabalho prático consiste em uma aplicação de rede. A ideia principal da aplicação é ser um batepapo entre usuários conectados. A aplicação pode seguir a arquitetura cliente servidor ou ponto a ponto (peer-to-peer). 
 
@@ -13,7 +13,7 @@ O trabalho prático consiste em uma aplicação de rede. A ideia principal da ap
 3. Qual é o diagrama de sequência das mensagens?
 
 - [x] Os usuários devem ser capazes de mandar mensagens para todos ao mesmo tempo (broadcast) ou mensagens privadas para outro usuário.
-- [ ] Ao mandar mensagens privadas, o usuário deve ser capaz de mandar arquivos (fotos, zip, exe  ou qualquer outro tipo de arquivo).
+- [x] Ao mandar mensagens privadas, o usuário deve ser capaz de mandar arquivos (fotos, zip, exe  ou qualquer outro tipo de arquivo).
 Limite do tamanho do arquivo --> 20MB.
 
 ### Pontuação
